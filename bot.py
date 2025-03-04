@@ -24,7 +24,7 @@ class Bot(Client):
         )
         self.LOGGER = LOGGER
 
-    async def start(self):
+    async def start(self, *args):
         await super().start()
         usr_bot_me = await self.get_me()
         self.uptime = datetime.now()
@@ -79,7 +79,7 @@ class Bot(Client):
         bind_address = "0.0.0.0"
         await web.TCPSite(app, bind_address, PORT).start()
 
-    async def stop(self, kwargs**):
+    async def stop(self, *args):
         await super().stop()
         self.LOGGER(__name__).info("Bot stopped.")
             
